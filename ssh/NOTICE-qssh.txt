@@ -1,0 +1,6 @@
+This directory contains code adapted from nanxiangxi/qssh (0qssh):
+https://github.com/nanxiangxi/qssh
+
+The upstream project README states CC BY-NC-SA 4.0. Preserve that license and
+the original attribution when distributing Xuandesk. Verify the current
+upstream license before any commercial distribution.
