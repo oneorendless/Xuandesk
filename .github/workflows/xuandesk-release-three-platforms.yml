@@ -1,0 +1,34 @@
+name: Xuandesk - Windows Linux Android Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      windows:
+        description: Build Windows x64 EXE/MSI
+        required: true
+        default: true
+        type: boolean
+      linux:
+        description: Build Linux x64 DEB and portable tar.gz
+        required: true
+        default: true
+        type: boolean
+      android:
+        description: Build Android universal APK
+        required: true
+        default: true
+        type: boolean
+
+permissions:
+  contents: read
+
+jobs:
+  release:
+    uses: ./.github/workflows/flutter-build.yml
+    secrets: inherit
+    with:
+      upload-artifact: true
+      upload-tag: manual-${{ github.run_number }}
+      build-windows: ${{ inputs.windows }}
+      build-linux: ${{ inputs.linux }}
+      build-android: ${{ inputs.android }}
